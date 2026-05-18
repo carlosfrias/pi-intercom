@@ -12,7 +12,7 @@
  * - Intercom connectivity verified
  */
 
-import { intercom } from '@earendil-works/pi-coding-agent';
+import { intercom } from '../index.ts';
 
 // Test configuration
 const CONFIG = {

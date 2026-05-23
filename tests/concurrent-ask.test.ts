@@ -4,7 +4,7 @@
  * Tests parallel intercom({ action: "ask", ... }) calls to verify
  * the fix for "Already waiting for a reply" error.
  * 
- * Run with: npm test -- concurrent-ask.test.ts
+ * RUN INSIDE A PI SESSION: Copy this code into a pi session and execute
  * 
  * Prerequisites:
  * - pi-intercom fork installed with parallel ask support
@@ -12,7 +12,8 @@
  * - Intercom connectivity verified
  */
 
-import { intercom } from '../index.ts';
+// intercom is provided globally by pi at runtime
+declare const intercom: (options: any) => Promise<any>;
 
 // Test configuration
 const CONFIG = {

@@ -3,28 +3,30 @@
   "version": "0.6.0",
   "license": "MIT",
   "type": "module",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "files": [
-    "index.ts",
-    "types.ts",
-    "config.ts",
-    "reply-tracker.ts",
-    "broker/**/*.ts",
-    "ui/**/*.ts",
-    "skills/**/*"
+    "src/index.ts",
+    "src/types.ts",
+    "src/config.ts",
+    "src/reply-tracker.ts",
+    "src/broker/**/*.ts",
+    "src/ui/**/*.ts",
+    "src/skills/**/*"
   ],
   "scripts": {
-    "test": "tsx --test broker/paths.test.ts broker/spawn.test.ts reply-tracker.test.ts intercom.integration.test.ts test/inline-message.test.ts tests/concurrent-ask.test.ts"
+    "test": "tsx --test broker/paths.test.ts broker/spawn.test.ts reply-tracker.test.ts intercom.integration.test.ts test/inline-message.test.ts",
+    "test:unit": "tsx tests/concurrent-ask.unit.test.ts",
+    "test:live": "echo 'Run tests/concurrent-ask.test.ts or tests/parallel-ask-live.test.ts inside a pi session with intercom loaded'"
   },
   "keywords": [
     "pi-package"
   ],
   "pi": {
     "extensions": [
-      "./index.ts"
+      "./src/index.ts"
     ],
     "skills": [
-      "./skills"
+      "./src/skills"
     ]
   },
   "peerDependencies": {

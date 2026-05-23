@@ -1,0 +1,111 @@
+{
+  "skill": "pi-intercom",
+  "total_size": "~18KB",
+  "version": "2.0",
+  "lod_directive": "Load only sections relevant to your task. Never load more than 2 for low-capacity, 4 for medium, 6 for high.",
+  "sections": [
+    {
+      "id": "CORE",
+      "file": "CORE.md",
+      "size": "~2KB",
+      "lod": "Low",
+      "always_load": true,
+      "description": "Philosophy, action reference table, quick examples"
+    },
+    {
+      "id": "PATTERNS",
+      "file": "PATTERNS.md",
+      "size": "~3.5KB",
+      "lod": "Medium",
+      "load_when": [
+        "sending_message",
+        "receiving_message",
+        "delegating_task",
+        "asking_question",
+        "broadcasting"
+      ],
+      "description": "Patterns 1-5: planner-worker delegation, status check, reply naturally, broadcast, send with attachments"
+    },
+    {
+      "id": "ESCALATION",
+      "file": "ESCALATION.md",
+      "size": "~2.5KB",
+      "lod": "Medium",
+      "load_when": [
+        "handling_subagent_escalation",
+        "answering_supervisor_decision",
+        "interview_request",
+        "contact_supervisor"
+      ],
+      "description": "Pattern 6: subagent escalation handling, need_decision, interview_request, progress_update"
+    },
+    {
+      "id": "PEER-SESSIONS",
+      "file": "PEER-SESSIONS.md",
+      "size": "~2.5KB",
+      "lod": "Medium",
+      "load_when": [
+        "spawning_worker_session",
+        "spawning_scout_session",
+        "creating_side_by_side_session",
+        "using_cmux",
+        "using_tmux"
+      ],
+      "description": "Spawning visible peer sessions with cmux or tmux, spawn decision rule"
+    },
+    {
+      "id": "CONSTRAINTS",
+      "file": "CONSTRAINTS.md",
+      "size": "~2.5KB",
+      "lod": "Low",
+      "load_when": [
+        "debugging_delivery",
+        "ask_timeout",
+        "session_not_found",
+        "connection_lost",
+        "error_handling",
+        "troubleshooting_intercom"
+      ],
+      "description": "Action limitations, common errors with solutions, troubleshooting steps"
+    },
+    {
+      "id": "WORKFLOWS",
+      "file": "WORKFLOWS.md",
+      "size": "~3KB",
+      "lod": "Medium",
+      "load_when": [
+        "designing_workflow",
+        "research_implementation_handoff",
+        "pair_debugging",
+        "progress_reporting",
+        "long_running_task",
+        "best_practices"
+      ],
+      "description": "Best practices and common workflow patterns: research→implementation, pair debugging, progress reporting, long-running tasks with checkpoints"
+    }
+  ],
+  "task_to_sections": {
+    "send_message": ["CORE", "PATTERNS"],
+    "ask_question": ["CORE", "PATTERNS"],
+    "reply_to_ask": ["CORE"],
+    "delegate_task": ["CORE", "PATTERNS"],
+    "broadcast_to_workers": ["CORE", "PATTERNS"],
+    "send_with_attachments": ["CORE", "PATTERNS"],
+    "handle_subagent_escalation": ["CORE", "ESCALATION"],
+    "answer_interview_request": ["CORE", "ESCALATION"],
+    "contact_supervisor_reply": ["CORE", "ESCALATION"],
+    "spawn_worker_session": ["CORE", "PEER-SESSIONS"],
+    "spawn_scout_session": ["CORE", "PEER-SESSIONS"],
+    "debug_delivery": ["CORE", "CONSTRAINTS"],
+    "handle_ask_timeout": ["CORE", "CONSTRAINTS"],
+    "troubleshoot_connection": ["CORE", "CONSTRAINTS"],
+    "design_multi_session_workflow": ["CORE", "WORKFLOWS"],
+    "research_impl_handoff": ["CORE", "WORKFLOWS"],
+    "pair_debugging": ["CORE", "WORKFLOWS"],
+    "progress_reporting": ["CORE", "WORKFLOWS"],
+    "long_running_task": ["CORE", "WORKFLOWS"],
+    "full_api_reference": ["CORE", "CONSTRAINTS"],
+    "list_sessions": ["CORE"],
+    "check_status": ["CORE"]
+  }
+}

@@ -5,7 +5,7 @@
 ### Automated Test (Recommended)
 
 ```bash
-cd /Users/friasc/Dropbox/carlos-desktop/workshop/01-Projects/pi-intercom
+cd /Users/friasc/Cloud/carlos-desktop/workshop/01-Projects/pi-intercom
 
 # Step 1: Run orchestrator test (sends parallel asks)
 ./tests/run-orchestrator-test.sh
@@ -124,7 +124,7 @@ tmux -S "$SOCKET" list-sessions
 
 ### "Broker not running"
 ```bash
-cd /Users/friasc/Dropbox/carlos-desktop/workshop/01-Projects/pi-intercom
+cd /Users/friasc/Cloud/carlos-desktop/workshop/01-Projects/pi-intercom
 npx tsx src/broker/broker.ts &
 ```
 

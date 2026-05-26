@@ -1,7 +1,7 @@
 ---
 name: Pi Intercom
 summary: "Skill decomposed from monolith to manifest pattern, package updated"
-status: session-closed
+status: complete
 phase: "Decomposition Sprint Complete"
 progress: 80
 tracked: true

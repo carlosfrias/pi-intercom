@@ -26,13 +26,29 @@ Pi-intercom also integrates well with [pi-subagents](https://github.com/nicobail
 
 Each pi session that has `pi-intercom` loaded and enabled connects to a tiny local broker over a local IPC transport. The broker keeps track of connected sessions and routes direct messages to the one you target by name or session ID. The extension gives you both a tool (`intercom`) and a small overlay UI (`/intercom` or `Alt+M`). Incoming messages are rendered inline inside the recipient session, can trigger a turn immediately, and are also stored in Pi session history as extension entries.
 
-## Install
+## Install & Update
+
+**First-time install:**
 
 ```bash
-pi install npm:pi-intercom
+pi install git@github.com:carlosfrias/pi-intercom.git
 ```
 
-Then restart Pi. The extension auto-connects to the broker on startup and registers the bundled `pi-intercom` skill for common coordination patterns.
+This reads the package's `package.json`, copies it into pi's extension directory, and registers it in `~/.pi/agent/settings.json`. The extension auto-connects to the broker on startup and registers the bundled `pi-intercom` skill for common coordination patterns.
+
+**Update after code changes:**
+
+```bash
+pi update git@github.com:carlosfrias/pi-intercom.git
+```
+
+Or update all installed extensions at once:
+
+```bash
+pi update --extensions
+```
+
+**Restart required:** pi reads extension configs at session start. After install or update, restart pi for changes to take effect. `/reload` does NOT pick up extension changes.
 
 **Recommended:** Add this snippet to your project's `AGENTS.md` to help agents understand when to coordinate across sessions:
 
